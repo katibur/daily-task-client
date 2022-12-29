@@ -99,7 +99,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto my-5">
+    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100 mx-auto my-5">
       <h1 className="text-2xl font-bold text-center">SignUp</h1>
       <form
         onSubmit={handleSubmit(signupHandler)}
@@ -107,7 +107,7 @@ const SignUp = () => {
         className="space-y-6 ng-untouched ng-pristine ng-valid"
       >
         <div className="space-y-1 text-sm">
-          <label for="name" className="block dark:text-gray-400">
+          <label for="name" className="block text-gray-400">
             Name
           </label>
           <input
@@ -118,13 +118,13 @@ const SignUp = () => {
             {...register("name", {
               required: "Name is required.",
             })}
-            className="w-full px-4 py-3 rounded-md border-white dark:bg-gray-900 dark:text-gray-100 focus:dark:border-cyan-400"
+            className="w-full px-4 py-3 rounded-md border-white bg-gray-900 text-gray-100 focus:border-cyan-400"
           />
           {errors.name && <p className="text-red-500">{errors.name.message}</p>}
         </div>
 
         <div className="space-y-1 text-sm">
-          <label for="email" className="block dark:text-gray-400">
+          <label for="email" className="block text-gray-400">
             Email
           </label>
           <input
@@ -135,14 +135,14 @@ const SignUp = () => {
             {...register("email", {
               required: "Email is required.",
             })}
-            className="w-full px-4 py-3 rounded-md border-white dark:bg-gray-900 dark:text-gray-100 focus:dark:border-cyan-400"
+            className="w-full px-4 py-3 rounded-md border-white bg-gray-900 text-gray-100 focus:border-cyan-400"
           />
           {errors.email && (
             <span className="text-red-500">{errors.email.message}</span>
           )}
         </div>
         <div className="space-y-1 text-sm">
-          <label for="password" className="block dark:text-gray-400">
+          <label for="password" className="block text-gray-400">
             Password
           </label>
           <input
@@ -159,20 +159,20 @@ const SignUp = () => {
                   "Password is weak.Must Have (lowercase,uppercase,special-character)",
               },
             })}
-            className="w-full px-4 py-3 rounded-md border-white dark:bg-gray-900 dark:text-gray-100 focus:dark:border-cyan-400"
+            className="w-full px-4 py-3 rounded-md border-white bg-gray-900 text-gray-100 focus:border-cyan-400"
           />
           {errors.password && (
             <span className="text-red-500">{errors.password.message}</span>
           )}
         </div>
-        <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-cyan-400">
+        <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-cyan-400">
           SignUp
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">
-        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-        <p className="px-3 text-sm dark:text-gray-400">SignUp with Google</p>
-        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+        <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
+        <p className="px-3 text-sm text-gray-400">SignUp with Google</p>
+        <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
       </div>
       <div className="flex justify-center space-x-4">
         <button
@@ -190,12 +190,12 @@ const SignUp = () => {
         </button>
       </div>
       {signupError && <p className="text-red-500">{signupError}</p>}
-      <p className="text-xs text-center sm:px-6 dark:text-gray-400">
+      <p className="text-xs text-center sm:px-6 text-gray-400">
         Already have an account?
         <Link
           rel="noopener noreferrer"
           to="/login"
-          className="underline dark:text-gray-100"
+          className="underline text-gray-100"
         >
           Login
         </Link>

@@ -96,30 +96,30 @@ const CompletedTask = () => {
         ?.filter((data) => data.isCompleted === true)
         .map((task) => (
           <>
-            <div className="max-w-xs mx-auto my-5 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
+            <div className="max-w-xs mx-auto my-5 rounded-md shadow-md bg-gray-900 text-gray-100">
               <img
                 src={task.img}
                 alt=""
-                className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
+                className="object-cover object-center w-full rounded-t-md h-72 bg-gray-500"
               />
               <div className="flex flex-col justify-between p-6 space-y-8">
                 <div className="space-y-2">
                   <h2 className="text-3xl font-semibold tracking-wide">
                     {task.name}
                   </h2>
-                  <p className="dark:text-gray-100">{task.description}</p>
+                  <p className="text-gray-100">{task.description}</p>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleDelete(task._id)}
-                  className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-cyan-400 dark:text-gray-900"
+                  className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-cyan-400 text-gray-900"
                 >
                   Delete
                 </button>
                 <button
                   type="button"
                   onClick={() => handleUndoComplete(task._id)}
-                  className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-cyan-400 dark:text-gray-900"
+                  className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-cyan-400 text-gray-900"
                 >
                   Undo Complete Task
                 </button>
@@ -139,7 +139,7 @@ const CompletedTask = () => {
                       })}
                       name="comment"
                       placeholder="Comment ....."
-                      className="w-full text-black px-4 py-3 rounded-md border-2 border-gray-300  dark:text-black focus:dark:border-violet-300"
+                      className="w-full text-black px-4 py-3 rounded-md border-2 border-gray-300 focus:border-violet-300"
                     />
 
                     <div>

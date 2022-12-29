@@ -55,8 +55,8 @@ const Navbar = () => {
             <li>
               <Link
                 to="/myTask"
-                aria-label="Our product"
-                title="Our product"
+                aria-label="My Tasks"
+                title="My Tasks"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
                 My Tasks
@@ -65,8 +65,8 @@ const Navbar = () => {
             <li>
               <Link
                 to="/completed"
-                aria-label="Product pricing"
-                title="Product pricing"
+                aria-label="Completed"
+                title="Completed"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
                 Completed Tasks

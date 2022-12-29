@@ -49,7 +49,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto my-5">
+    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100 mx-auto my-5">
       <h1 className="text-2xl font-bold text-center">Login</h1>
       <form
         onSubmit={handleSubmit(handleLogin)}
@@ -57,7 +57,7 @@ const Login = () => {
         className="space-y-6 ng-untouched ng-pristine ng-valid"
       >
         <div className="space-y-1 text-sm">
-          <label for="email" className="block dark:text-gray-400">
+          <label for="email" className="block text-gray-400">
             Email
           </label>
           <input
@@ -66,14 +66,14 @@ const Login = () => {
             id="email"
             placeholder="unknown@gmail.com"
             {...register("email", { required: "Email Address is required" })}
-            className="w-full px-4 py-3 rounded-md border-white dark:bg-gray-900 dark:text-gray-100 focus:dark:border-cyan-400"
+            className="w-full px-4 py-3 rounded-md border-white bg-gray-900 text-gray-100 focus:border-cyan-400"
           />
           {errors.email && (
             <p className="text-red-500">{errors.email?.message}</p>
           )}
         </div>
         <div className="space-y-1 text-sm">
-          <label for="password" className="block dark:text-gray-400">
+          <label for="password" className="block text-gray-400">
             Password
           </label>
           <input
@@ -85,7 +85,7 @@ const Login = () => {
               required: "Password is required",
               minLength: { value: 6, message: "Password Is Too Short!!" },
             })}
-            className="w-full px-4 py-3 rounded-md border-white dark:bg-gray-900 dark:text-gray-100 focus:dark:border-cyan-400"
+            className="w-full px-4 py-3 rounded-md border-white bg-gray-900 text-gray-100 focus:border-cyan-400"
           />
           {errors.password && (
             <p className="text-red-500">{errors.password?.message}</p>
@@ -93,14 +93,14 @@ const Login = () => {
           {loginError && <p className="text-red-500">{loginError}</p>}
         </div>
 
-        <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-cyan-400">
+        <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-cyan-400">
           Login
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">
-        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-        <p className="px-3 text-sm dark:text-gray-400">Login with Google</p>
-        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+        <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
+        <p className="px-3 text-sm text-gray-400">Login with Google</p>
+        <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
       </div>
       <div className="flex justify-center space-x-4">
         <button
