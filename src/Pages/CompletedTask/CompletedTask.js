@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../Components/Shared/Loading/Loading";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const CompletedTask = () => {
@@ -9,22 +11,35 @@ const CompletedTask = () => {
   const [tasks, setTasks] = useState([]);
   const navigate = useNavigate();
 
-  const { data: fetchedData = [], refetch } = useQuery({
+  const { register, handleSubmit } = useForm();
+
+  const {
+    data: fetchedData = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["fetchedData", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/tasks/${user?.email}`, {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const res = await fetch(
+        `https://daily-task-server-seven.vercel.app/tasks/${user?.email}`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const data = await res.json();
       setTasks(data);
+      refetch();
       return data;
     },
   });
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   const handleUndoComplete = (id) => {
-    fetch(`http://localhost:5000/tasks/${id}`, {
+    fetch(`https://daily-task-server-seven.vercel.app/tasks/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -39,7 +54,7 @@ const CompletedTask = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/tasks/${id}`, {
+    fetch(`https://daily-task-server-seven.vercel.app/tasks/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -52,6 +67,26 @@ const CompletedTask = () => {
           toast.success("Task Deleted successfully");
           refetch();
         }
+      });
+  };
+
+  const handleAddComment = (data) => {
+    const myComment = {
+      comment: data.comment,
+      task: data.taskId,
+    };
+    console.log(myComment);
+    fetch("https://daily-task-server-seven.vercel.app/comment", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(myComment),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Comment added successfully");
       });
   };
 
@@ -81,7 +116,6 @@ const CompletedTask = () => {
                 >
                   Delete
                 </button>
-
                 <button
                   type="button"
                   onClick={() => handleUndoComplete(task._id)}
@@ -89,6 +123,46 @@ const CompletedTask = () => {
                 >
                   Undo Complete Task
                 </button>
+
+                <form
+                  className="flex flex-col w-full"
+                  onSubmit={handleSubmit(handleAddComment)}
+                >
+                  <div>
+                    <label
+                      htmlFor="comment"
+                      className="block text-white"
+                    ></label>
+                    <textarea
+                      {...register("comment", {
+                        required: "comment is Required",
+                      })}
+                      name="comment"
+                      placeholder="Comment ....."
+                      className="w-full text-black px-4 py-3 rounded-md border-2 border-gray-300  dark:text-black focus:dark:border-violet-300"
+                    />
+
+                    <div>
+                      <label htmlFor="taskId"></label>
+                      <input
+                        {...register("taskId")}
+                        type="text"
+                        name="taskId"
+                        id="taskId"
+                        placeholder={task._id}
+                        disabled
+                        hidden
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="py-4 px-3 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-cyan-400"
+                    >
+                      Comment On This Task
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </>

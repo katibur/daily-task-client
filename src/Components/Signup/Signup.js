@@ -54,7 +54,7 @@ const SignUp = () => {
       name,
     };
     // console.log(user);
-    fetch("http://localhost:5000/users", {
+    fetch("https://daily-task-server-seven.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -84,7 +84,7 @@ const SignUp = () => {
       email,
       name,
     };
-    fetch("http://localhost:5000/users", {
+    fetch("https://daily-task-server-seven.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

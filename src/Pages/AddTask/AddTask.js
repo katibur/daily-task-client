@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import "./addTask.scss";
 
 const AddTask = () => {
   const {
@@ -35,7 +36,7 @@ const AddTask = () => {
             email: user.user.email,
           };
           console.log(myTasks);
-          fetch("http://localhost:5000/task", {
+          fetch("https://daily-task-server-seven.vercel.app/task", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -60,7 +61,7 @@ const AddTask = () => {
         <form onSubmit={handleSubmit(handleAddTask)}>
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-1 items-center">
             <div>
-              <label htmlFor="taskName" className="block text-white">
+              <label htmlFor="taskName" className="block">
                 Task Name
               </label>
               <input
@@ -79,7 +80,7 @@ const AddTask = () => {
             )}
 
             <div>
-              <label htmlFor="img" className="block text-white">
+              <label htmlFor="img" className="block">
                 Task Image
               </label>
               <input
@@ -94,7 +95,7 @@ const AddTask = () => {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-white">
+              <label htmlFor="message" className="block">
                 Task Details
               </label>
               <textarea
@@ -106,7 +107,7 @@ const AddTask = () => {
             </div>
 
             <input
-              className="block rounded-sm bg-white px-8 py-3 text-sm font-medium hover:bg-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+              className="text-gray-300 hover:text-white  block rounded-sm bg-white px-8 py-3 text-sm font-medium hover:bg-transparent bg-gradient-to-r from-pink-600 via-red-600 to-yellow-600 p-[2px] focus:outline-none focus:ring active:text-opacity-75"
               value="Add Task"
               type="submit"
             />
