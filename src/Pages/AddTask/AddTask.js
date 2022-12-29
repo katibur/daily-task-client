@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../Components/Shared/Loading/Loading";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import "./addTask.scss";
 
 const AddTask = () => {
+  const [loading, setLoading] = useState(false);
   const {
     register,
     formState: { errors },
@@ -16,6 +18,7 @@ const AddTask = () => {
   const navigate = useNavigate();
 
   const handleAddTask = (data) => {
+    setLoading(true);
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -48,12 +51,16 @@ const AddTask = () => {
               console.log(data);
               toast.success("Task added successfully");
               if (data.acknowledged === true) {
+                setLoading(false);
                 navigate("/myTask", { replace: true });
               }
             });
         }
       });
   };
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <div className="mx-auto my-10">
