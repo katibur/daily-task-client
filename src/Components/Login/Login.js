@@ -46,6 +46,9 @@ const Login = () => {
     googleSignIn()
       .then((res) => {
         const user = res.user;
+        if (user) {
+          navigate(from, { replace: true });
+        }
         console.log(user);
       })
       .catch((err) => console.error(err));
