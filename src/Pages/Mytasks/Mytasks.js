@@ -77,7 +77,7 @@ const Mytasks = () => {
   };
 
   return (
-    <div class="overflow-x-auto my-10 bg-slate-600 text-white grid lg:grid-cols-3 sm:grid-cols-1">
+    <div class="overflow-x-auto my-10 bg-slate-300 text-white grid lg:grid-cols-3 sm:grid-cols-1 dark:bg-black dark:text-white">
       {tasks
         ?.filter((data) => data.isCompleted !== true)
         .map((task) => (

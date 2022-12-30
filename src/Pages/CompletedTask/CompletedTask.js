@@ -91,7 +91,7 @@ const CompletedTask = () => {
   };
 
   return (
-    <div class="overflow-x-auto my-10 bg-slate-600 text-white">
+    <div class="overflow-x-auto my-10 bg-slate-300 text-white dark:bg-black dark:text-white">
       {tasks
         ?.filter((data) => data.isCompleted === true)
         .map((task) => (
@@ -157,7 +157,7 @@ const CompletedTask = () => {
 
                     <button
                       type="submit"
-                      className="py-4 px-3 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-cyan-400"
+                      className="py-4 px-3 my-8 font-semibold rounded-md text-gray-900 bg-cyan-400"
                     >
                       Comment On This Task
                     </button>

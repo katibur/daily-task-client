@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import Toggle from "../../Toggle/Toggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,6 +43,7 @@ const Navbar = () => {
               Daily Task
             </span>
           </Link>
+          <Toggle></Toggle>
 
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
