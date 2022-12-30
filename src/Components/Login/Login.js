@@ -55,7 +55,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100 mx-auto my-5">
+    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-600 dark:bg-gray-900 text-gray-100 mx-auto my-5">
       <h1 className="text-2xl font-bold text-center">Login</h1>
       <form
         onSubmit={handleSubmit(handleLogin)}
@@ -63,7 +63,7 @@ const Login = () => {
         className="space-y-6 ng-untouched ng-pristine ng-valid"
       >
         <div className="space-y-1 text-sm">
-          <label for="email" className="block text-gray-400">
+          <label for="email" className="block text-gray-300">
             Email
           </label>
           <input
@@ -79,7 +79,7 @@ const Login = () => {
           )}
         </div>
         <div className="space-y-1 text-sm">
-          <label for="password" className="block text-gray-400">
+          <label for="password" className="block text-gray-300">
             Password
           </label>
           <input

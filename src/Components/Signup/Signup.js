@@ -105,7 +105,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100 mx-auto my-5">
+    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-600 dark:bg-gray-900 text-gray-100 mx-auto my-5">
       <h1 className="text-2xl font-bold text-center">SignUp</h1>
       <form
         onSubmit={handleSubmit(signupHandler)}

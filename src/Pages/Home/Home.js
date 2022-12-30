@@ -18,7 +18,7 @@ const Home = () => {
             <div class="lg:py-24">
               <h2 class="text-3xl font-bold sm:text-4xl">Schedule Your Task</h2>
 
-              <p class="mt-4 text-gray-600">
+              <p class="mt-4 text-gray-600 dark:text-white">
                 Add Task schedule wise and get reminder.Every task can be
                 controlled from here.
               </p>
