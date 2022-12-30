@@ -31,6 +31,9 @@ const Login = () => {
       .then((Result) => {
         const user = Result.user;
         console.log(user);
+        if (user) {
+          navigate(from, { replace: true });
+        }
         setLoginUserEmail(data.email);
       })
       .catch((err) => {

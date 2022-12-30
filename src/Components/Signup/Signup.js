@@ -33,6 +33,9 @@ const SignUp = () => {
         const user = Result.user;
         console.log(user);
         toast.success("Successfully Created.");
+        if (user) {
+          navigate("/");
+        }
         const userInfo = {
           displayName: data.name,
         };
@@ -75,6 +78,9 @@ const SignUp = () => {
         const userEmail = user.email;
         const name = user.displayName;
         saveSocialUser(userEmail, name);
+        if (user) {
+          navigate("/");
+        }
       })
       .catch((err) => console.error(err));
   };
